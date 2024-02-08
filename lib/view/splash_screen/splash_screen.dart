@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/utils/color_constant.dart';
+import 'package:netflix_clone/utils/image_constant.dart';
 import 'package:netflix_clone/view/user_name_screen/user_name_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -36,16 +37,9 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              // width: 130,
-              // height: 57,
-              child: Text(
-                "NETFLIX",
-                style: TextStyle(
-                    color: ColorConstant.red,
-                    fontSize: 50,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
+                // width: 130,
+                // height: 57,
+                child: Image.asset(ImageContants.netflixLogo)),
             SizedBox(
               height: 10,
             ),
