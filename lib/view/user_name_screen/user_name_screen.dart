@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, unnecessary_import, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, unnecessary_import, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +21,15 @@ class _UserNameScreenState extends State<UserNameScreen> {
       backgroundColor: ColorConstant.black,
       appBar: AppBar(
         backgroundColor: ColorConstant.black,
-        title: Center(child: Image.asset(ImageContants.netflixLogo)),
+        title: Center(
+            child: Container(
+          //color: Colors.deepOrange,
+          width: 138,
+          height: 50,
+          child: Image.asset(
+            ImageContants.netflixLogo,
+          ),
+        )),
         actions: [
           Icon(
             Icons.edit,
@@ -37,56 +45,58 @@ class _UserNameScreenState extends State<UserNameScreen> {
               itemCount: DataBase.usernameImages.length + 1,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, crossAxisSpacing: 5, mainAxisSpacing: 5),
-              itemBuilder: (context, index) => index <
-                      DataBase.usernameImages.length
-                  ? Column(
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => BottomNav(),
-                              ),
-                            );
-                          },
-                          child: Container(
-                              height: 100,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Colors.amber,
-                              ),
-                              child: Image.asset(
-                                  DataBase.usernameImages[index]['image']!)),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          DataBase.usernameImages[index]['name']!,
-                          style: TextStyle(color: Colors.white),
+              itemBuilder: (context, index) =>
+                  index < DataBase.usernameImages.length
+                      ? Column(
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => BottomNav(),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                  height: 100,
+                                  width: 100,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Colors.amber,
+                                  ),
+                                  child: Image.asset(
+                                    DataBase.usernameImages[index]['image']!,
+                                    fit: BoxFit.fill,
+                                  )),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              DataBase.usernameImages[index]['name']!,
+                              style: TextStyle(color: Colors.white),
+                            )
+                          ],
                         )
-                      ],
-                    )
-                  : Column(
-                      children: [
-                        SizedBox(
-                          height: 10,
-                        ),
-                        CircleAvatar(
-                          radius: 50,
-                          child: Icon(Icons.add, size: 50),
-                        ),
-                        SizedBox(
-                          height: 3,
-                        ),
-                        Text(
-                          "Add",
-                          style: TextStyle(color: Colors.white),
-                        )
-                      ],
-                    )),
+                      : Column(
+                          children: [
+                            SizedBox(
+                              height: 50,
+                            ),
+                            CircleAvatar(
+                              radius: 25,
+                              child: Image.asset(ImageContants.add),
+                            ),
+                            SizedBox(
+                              height: 3,
+                            ),
+                            Text(
+                              "Add",
+                              style: TextStyle(color: Colors.white),
+                            )
+                          ],
+                        )),
         ),
       ),
     );
