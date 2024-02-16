@@ -8,4 +8,8 @@ class ImageContants {
 
   static String netflixLogoicon = "assets/images/logo_netflix-icon.png";
   static String titlepic = "assets/images/titlepic.png";
+
+  static String gmail = "assets/images/gmail_img.png";
+  static String whatsapp = "assets/images/whtApp_img.png";
+  static String facebook = "assets/images/fb_img.png";
 }
